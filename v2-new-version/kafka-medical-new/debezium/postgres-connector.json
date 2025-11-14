@@ -1,0 +1,21 @@
+{
+  "name": "patient-vitals-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "plugin.name": "pgoutput",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "postgres",
+    "database.password": "abc",
+    "database.dbname": "patients",
+    "topic.prefix": "dbserver1",
+    "table.include.list": "public.patient_vitals",
+    "slot.name": "debezium_slot",
+    "publication.name": "debezium_pub",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "value.converter.schemas.enable": "false",
+    "include.schema.changes": "false"
+  }
+}
